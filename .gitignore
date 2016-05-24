@@ -17,6 +17,14 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+#Ignore Everything
+*
+
+#But not these
+package.json
+primary.js
+InsertSQL.js
+
 # =========================
 # Operating System Files
 # =========================
