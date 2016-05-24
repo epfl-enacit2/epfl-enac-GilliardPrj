@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "name": "GilliardPrj",
+  "description": "Serial Acquisition for Arduinos",
+  "author": "Mickael Bonjour <mbonjourprotonmail.ch>",
+  "dependencies": {
+    "mssql": "^3.3.0",
+    "sequelize": "^3.23.2",
+    "serialport": "^3.1.2",
+    "string": "^3.3.1",
+    "tedious": "^1.14.0"
+  }
+}
