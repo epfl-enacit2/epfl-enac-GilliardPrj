@@ -22,7 +22,6 @@ $RECYCLE.BIN/
 
 #But not these
 package.json
-InsertSQL.js
 README.md
 store.js
 app.js
