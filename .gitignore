@@ -25,6 +25,7 @@ package.json
 primary.js
 InsertSQL.js
 README.md
+store.js
 
 # =========================
 # Operating System Files

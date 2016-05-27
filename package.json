@@ -1,5 +1,6 @@
 {
   "version": "1.0.0",
+  "main":"app.js",
   "name": "GilliardPrj",
   "description": "Serial Acquisition for Arduinos",
   "author": "Mickael Bonjour <mbonjourprotonmail.ch>",
