@@ -6,7 +6,7 @@ module.exports = function (configFilePath) {
             name:''
         },
         module: {
-            port: '',
+            port: "",
             rate: 9600
         },
         logging: {
