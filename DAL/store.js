@@ -1,19 +1,23 @@
 var SeqInit = require('sequelize');
 var sequelize = new SeqInit('test_node', 'user', 'pass')
-module.exports = function(objConfig){
-    var User = sequelize.define('users', {
-  username: SeqInit.STRING,
-  birthday: SeqInit.DATE
-});
 
-sequelize.sync().then(function() {
-  return User.create({
-    username: 'janedoe6',
-    birthday: new Date(1980, 6, 20)
-  });
-})
+function Init(data) {
+
+    var Data = sequelize.define('T_Data', {
+        BID: SeqInit.INTEGER,
+        SID: SeqInit.STRING,
+        SVal: SeqInit.FLOAT
+    });
+    sequelize.sync().then(function () {
+        return Data.create({
+            BID: data.boardID,
+            SID: data.sensorID,
+            SVal: data.sensorVal
+        });
+    })
 };
 
+module.exports = Init;
 
 /*
 var db = {

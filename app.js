@@ -17,7 +17,12 @@ port.on('open', function () {
     if (stringBuilder(data).left(1).s == '>') {
       parseData(data, function (cleanData) {
         logElements(cleanData);
-        logIfDebug(" \r")
+        
+        cleanData.forEach(function (element) {
+          //Recherches à faire pour sequelize
+          //store.Init(element);
+        });
+        logIfDebug("\r")
       });
     }
     else {
@@ -34,12 +39,12 @@ port.on('open', function () {
 
 function logElements(elements) {
   elements.forEach(function (element) {
-          console.log(element);
-        });
+    console.log(element);
+  });
 }
 
 function logIfDebug(msg) {
-  if(debug == true){
+  if (debug == true) {
     console.log(msg);
   }
 }
@@ -53,14 +58,12 @@ function parseData(data, next) {
 
     if (i != 0) {
       var dataReSplitted = dataSplitted[i].split('=');
-      dataReSplitted[1]=removeEnter(dataReSplitted[1]);    
+      dataReSplitted[1] = removeEnter(dataReSplitted[1]);
       cleanData.push({
         boardID: dataSplitted[0].substring(1),
         sensorID: dataReSplitted[0],
-        sensorVal:  dataReSplitted[1]
+        sensorVal: dataReSplitted[1]
       });
-
-      //console.logIfDebug('BoardID : ' + ModuleID + ' Capteur : ' + sensID + ' Valeur : ' + val);
     }
     //Voir si faire un test de split(*) sur dataReSplitted[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
   }
@@ -68,10 +71,10 @@ function parseData(data, next) {
 };
 
 function removeEnter(data) {
-  if (stringBuilder(data).contains('\r')){
-        return stringBuilder(data).chompRight('\r').s;
-      }
-  else{
+  if (stringBuilder(data).contains('\r')) {
+    return stringBuilder(data).chompRight('\r').s;
+  }
+  else {
     return data;
   }
 }
