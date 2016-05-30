@@ -1,7 +1,7 @@
 var SeqInit = require('sequelize');
 var sequelize = new SeqInit('test_node', 'user', 'pass')
-
-var User = sequelize.define('users', {
+module.exports = function(objConfig){
+    var User = sequelize.define('users', {
   username: SeqInit.STRING,
   birthday: SeqInit.DATE
 });
@@ -12,6 +12,8 @@ sequelize.sync().then(function() {
     birthday: new Date(1980, 6, 20)
   });
 })
+};
+
 
 /*
 var db = {

@@ -6,27 +6,27 @@ var store = require('./DAL/store.js')(configs.store);
 var debug = configs.logging.logToConsole;
 var SerialPort = sPort.SerialPort;
 //var port = new SerialPort("COM3", {
-var port = new SerialPort(configs.module.port, {
-  baudrate: configs.module.baudrate,
+var port = new SerialPort(configs.Module.port, {
+  baudrate: configs.Module.rate,
   parser: sPort.parsers.readline('\n')
 });
 
 port.on('open', function () {
-  log('open');
+  logIfDebug('open');
   port.on('data', function (data) {
     if (stringBuilder(data).left(1).s == '>') {
       parseData(data, function (cleanData) {
         logElements(cleanData);
-        log(" \r")
+        logIfDebug(" \r")
       });
     }
     else {
       //Si le caractère est / c'est un commentaire --> dans console
       if (stringBuilder(data).left(1).s == '/') {
-        log('Commentaires: ' + data);
+        logIfDebug('Commentaires: ' + data);
       }
       else {
-        log('Error :' + data)
+        logIfDebug('Error :' + data)
       }
     }
   });
@@ -39,7 +39,7 @@ function logElements(elements) {
 }
 
 function logIfDebug(msg) {
-  if(debug){
+  if(debug == true){
     console.log(msg);
   }
 }
@@ -48,7 +48,7 @@ function parseData(data, next) {
   var cleanData = [];
   var dataSplitted = data.split(',');
   var ModuleID = dataSplitted[0].substring(1);
-  //console.log('BoardId : ' + ModuleID);
+  //console.logIfDebug('BoardId : ' + ModuleID);
   for (var i in dataSplitted) {
 
     if (i != 0) {
@@ -60,7 +60,7 @@ function parseData(data, next) {
         sensorVal:  dataReSplitted[1]
       });
 
-      //console.log('BoardID : ' + ModuleID + ' Capteur : ' + sensID + ' Valeur : ' + val);
+      //console.logIfDebug('BoardID : ' + ModuleID + ' Capteur : ' + sensID + ' Valeur : ' + val);
     }
     //Voir si faire un test de split(*) sur dataReSplitted[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
   }
