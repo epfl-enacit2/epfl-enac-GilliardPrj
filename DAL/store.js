@@ -1,9 +1,9 @@
-var Sequelize = require('sequelize');
-var sequelize = new Sequelize('test_node', 'user', 'pass')
+var SeqInit = require('sequelize');
+var sequelize = new SeqInit('test_node', 'user', 'pass')
 
 var User = sequelize.define('users', {
-  username: Sequelize.STRING,
-  birthday: Sequelize.DATE
+  username: SeqInit.STRING,
+  birthday: SeqInit.DATE
 });
 
 sequelize.sync().then(function() {

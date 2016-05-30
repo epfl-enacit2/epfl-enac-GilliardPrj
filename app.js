@@ -1,40 +1,50 @@
+var configs = require('./configs')('toto.json');
 var stringBuilder = require('string');
+var sPort = require('serialport');
+var store = require('./DAL/store.js')(configs.store);
 
-var serialport = require('serialport');
-var SerialPort = serialport.SerialPort;
-
-var store = require("./DAL/store.js")
-
-var port = new SerialPort("COM3", {
-  baudrate: 9600,
-  parser: serialport.parsers.readline('\n')
+var debug = configs.logging.logToConsole;
+var SerialPort = sPort.SerialPort;
+//var port = new SerialPort("COM3", {
+var port = new SerialPort(configs.module.port, {
+  baudrate: configs.module.baudrate,
+  parser: sPort.parsers.readline('\n')
 });
 
 port.on('open', function () {
-  console.log('open');
+  log('open');
   port.on('data', function (data) {
     if (stringBuilder(data).left(1).s == '>') {
-      parseData(data, function next(cleanData) {
-        cleanData.forEach(function (element) {
-          console.log(element);
-        })
-        console.log(" \r")
+      parseData(data, function (cleanData) {
+        logElements(cleanData);
+        log(" \r")
       });
     }
     else {
       //Si le caractère est / c'est un commentaire --> dans console
       if (stringBuilder(data).left(1).s == '/') {
-        console.log('Commentaires: ' + data);
+        log('Commentaires: ' + data);
       }
       else {
-        console.log('Error :' + data)
+        log('Error :' + data)
       }
     }
   });
 });
 
-function parseData(data, next) {
+function logElements(elements) {
+  elements.forEach(function (element) {
+          console.log(element);
+        });
+}
 
+function logIfDebug(msg) {
+  if(debug){
+    console.log(msg);
+  }
+}
+
+function parseData(data, next) {
   var cleanData = [];
   var dataSplitted = data.split(',');
   var ModuleID = dataSplitted[0].substring(1);

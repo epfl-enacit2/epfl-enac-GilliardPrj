@@ -19,6 +19,7 @@ $RECYCLE.BIN/
 
 /.vscode/**
 /node_modules/**
+/configs/index.js
 
 
 # =========================
