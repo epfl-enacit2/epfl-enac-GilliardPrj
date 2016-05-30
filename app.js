@@ -43,30 +43,16 @@ function parseData(data, next) {
 
     if (i != 0) {
       var dataReSplitted = dataSplitted[i].split('=');
-      var sensID = dataReSplitted[0];
-      var val = dataReSplitted[1];
-
-
-      cleanData.push(new CurrentData.addData(ModuleID, sensID, val));
+      
+      cleanData.push({
+        boardID: dataSplitted[0].substring(1),
+        sensorID: dataReSplitted[0],
+        sensorVal:  dataReSplitted[1]
+      });
 
       //console.log('BoardID : ' + ModuleID + ' Capteur : ' + sensID + ' Valeur : ' + val);
     }
     //Voir si faire un test de split(*) sur dataReSplitted[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
   }
   next(cleanData, null);
-};
-
-
-
-//objet pour remplissage du tableau CleanData
-var CurrentData = {
-  boardID: "",
-  sensorID: "",
-  sensorVal: "",
-
-  addData: function (Moduleid, sens, valSens) {
-    this.boardID = Moduleid;
-    this.sensorID = sens;
-    this.sensorVal = valSens;
-  }
 };

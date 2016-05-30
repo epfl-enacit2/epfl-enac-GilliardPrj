@@ -1,11 +1,11 @@
 {
   "version": "1.0.0",
-  "main":"app.js",
+  "main": "app.js",
   "name": "GilliardPrj",
   "description": "Serial Acquisition for Arduinos",
   "author": "Mickael Bonjour <mbonjourprotonmail.ch>",
   "dependencies": {
-    "mssql": "^3.3.0",
+    "mysql": "^2.10.2",
     "sequelize": "^3.23.2",
     "serialport": "^3.1.2",
     "string": "^3.3.1",
