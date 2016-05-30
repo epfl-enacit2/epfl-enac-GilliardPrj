@@ -53,7 +53,7 @@ function parseData(data, next) {
 
     if (i != 0) {
       var dataReSplitted = dataSplitted[i].split('=');
-      
+      dataReSplitted[1]=removeEnter(dataReSplitted[1]);    
       cleanData.push({
         boardID: dataSplitted[0].substring(1),
         sensorID: dataReSplitted[0],
@@ -66,3 +66,12 @@ function parseData(data, next) {
   }
   next(cleanData, null);
 };
+
+function removeEnter(data) {
+  if (stringBuilder(data).contains('\r')){
+        return stringBuilder(data).chompRight('\r').s;
+      }
+  else{
+    return data;
+  }
+}
