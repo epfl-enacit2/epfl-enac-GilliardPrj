@@ -1,5 +1,6 @@
+var configs = require('../configs')('toto.json');
 var SeqInit = require('sequelize');
-var sequelize = new SeqInit('test_node', 'user', 'pass')
+var sequelize = new SeqInit(configs.store.name,configs.store.username,configs.store.password)
 
 
 exports.caca = function (data){
