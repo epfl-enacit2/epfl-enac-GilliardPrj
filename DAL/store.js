@@ -1,13 +1,16 @@
 var SeqInit = require('sequelize');
 var sequelize = new SeqInit('test_node', 'user', 'pass')
 
-function Init(data) {
 
-    var Data = sequelize.define('T_Data', {
+exports.caca = function (data){
+
+var Data = sequelize.define('T_Data', {
         BID: SeqInit.INTEGER,
         SID: SeqInit.STRING,
         SVal: SeqInit.FLOAT
     });
+    
+
     sequelize.sync().then(function () {
         return Data.create({
             BID: data.boardID,
@@ -17,7 +20,7 @@ function Init(data) {
     })
 };
 
-module.exports = Init;
+
 
 /*
 var db = {

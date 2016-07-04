@@ -1,7 +1,7 @@
 var configs = require('./configs')('toto.json');
 var stringBuilder = require('string');
 var sPort = require('serialport');
-var store = require('./DAL/store.js')(configs.store);
+var store = require('./DAL/store.js');
 
 var debug = configs.logging.logToConsole;
 var SerialPort = sPort.SerialPort;
@@ -12,16 +12,22 @@ var port = new SerialPort(configs.Module.port, {
 });
 
 port.on('open', function () {
+
   logIfDebug('open');
+
   port.on('data', function (data) {
+
     if (stringBuilder(data).left(1).s == '>') {
+
       parseData(data, function (cleanData) {
+
         logElements(cleanData);
-        
         cleanData.forEach(function (element) {
-          //Recherches à faire pour sequelize
-          //store.Init(element);
+          if (stringBuilder(element.sensorID).left(1).s != "X" | "x") {
+            store.caca(element);
+          }
         });
+
         logIfDebug("\r")
       });
     }
@@ -59,11 +65,13 @@ function parseData(data, next) {
     if (i != 0) {
       var dataReSplitted = dataSplitted[i].split('=');
       dataReSplitted[1] = removeEnter(dataReSplitted[1]);
+
       cleanData.push({
         boardID: dataSplitted[0].substring(1),
         sensorID: dataReSplitted[0],
         sensorVal: dataReSplitted[1]
       });
+
     }
     //Voir si faire un test de split(*) sur dataReSplitted[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
   }
