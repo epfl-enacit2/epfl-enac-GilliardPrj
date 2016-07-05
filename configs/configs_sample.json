@@ -1,0 +1,14 @@
+{
+    "store": {
+        "username": "",
+        "password": "",
+        "name": ""
+    },
+    "Module": {
+        "port": "",
+        "rate": 9600
+    },
+    "logging": {
+        "logToConsole": true
+    }
+}
