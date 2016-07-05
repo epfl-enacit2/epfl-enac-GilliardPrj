@@ -4,6 +4,7 @@
         "password": "",
         "name": ""
     },
+    //TODO: multiple modules
     "Module": {
         "port": "",
         "rate": 9600
