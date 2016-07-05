@@ -1,4 +1,4 @@
-var configs = require('./configs')('toto.json');
+var configs = require('./configs')('configs.json');
 var stringBuilder = require('string');
 var sPort = require('serialport');
 var store = require('./DAL/store.js');
