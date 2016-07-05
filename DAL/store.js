@@ -1,4 +1,4 @@
-var configs = require('../configs')('../configs/toto.json');
+var configs = require('../configs')('configs.json');
 var SeqInit = require('sequelize');
 var sequelize = new SeqInit(configs.store.name,configs.store.username,configs.store.password)
 

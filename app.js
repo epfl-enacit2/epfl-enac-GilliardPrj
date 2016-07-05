@@ -73,7 +73,7 @@ function parseData(data, next) {
       });
 
     }
-    //Voir si faire un test de split(*) sur dataReSplitted[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
+    //Voir si faire un test de "split(*)" sur dataReSplitted[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
   }
   next(cleanData, null);
 };
