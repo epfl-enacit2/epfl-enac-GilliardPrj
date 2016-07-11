@@ -1,14 +1,14 @@
 module.exports = function (store){
     var SeqInit = require('sequelize');
     var sequelize = new SeqInit(store.name,store.username,store.password)
-    var Data = sequelize.define('T_Data', {
-                BID: SeqInit.INTEGER,
+    var Data = sequelize.define('t_sensorvalues', {
+                BID: SeqInit.STRING,
                 SID: SeqInit.STRING,
                 SVal: SeqInit.FLOAT
             });
 
     return {
-        caca: function(data){
+        insert: function(data){
 
             Data.create({
                     BID: data.boardID,

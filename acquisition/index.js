@@ -1,93 +1,98 @@
 var stringBuilder = require('string');
 
-module.exports = function (properties){
-        var debug = properties.configs.logging.logToConsole;
-        var SerialPort = properties.sPort.SerialPort;
-        //var port = new SerialPort("COM3", {
-        var port = new SerialPort(properties.configs.Modules[0].port, {
-            baudrate: properties.configs.Modules[0].rate,
-            parser: properties.sPort.parsers.readline('\n')
-        });
+module.exports = function (properties) {
 
-        port.on('open', function () {
+    var SerialPort = properties.sPort.SerialPort;
 
-            logIfDebug('open');
+    //var port = new SerialPort("COM3", {
+    return {
+        register: function (mod) {
 
-            port.on('data', function (data) {
+            var ToSave = [];
+            var debug = properties.configs.logging.logToConsole;
+            var port = new SerialPort(mod.port, {
+                baudrate: mod.rate,
+                parser: properties.sPort.parsers.readline('\n')
+            });
 
-                if (data.charAt(0) == '>') {
+            port.on('open', function () {
 
-                    parseData(data, function (cleanData) {
-                        logElements(cleanData);
-                        cleanData.map(function (element) {
-                            if (element.sensorID.charAt(0) != "X" | "x") {
-                                properties.store.caca(element);
-                            }
+                logIfDebug('open');
+
+                port.on('data', function (data) {
+
+                    if (data.charAt(0) == '>') {
+
+                        parseData(data, function (cleanData) {
+                            logElements(cleanData);
+                            cleanData.map(function (element) {
+                                if (element.sensorID.charAt(0) != "X" | "x") {
+                                    //voir pour sortir les données car port.on infernal
+                                    ToSave.push(element);
+                                    properties.store.insert(element);
+                                    
+                                }
+                            });
+
+                            logIfDebug("\r")
                         });
-
-                        logIfDebug("\r")
-                    });
-                }
-                else {
-                    //Si le caractère est / c'est un commentaire --> dans console
-                    if (data.charAt(0) == '/') {
-                        logIfDebug('Commentaires: ' + data);
                     }
                     else {
-                        logIfDebug('Error :' + data)
+                        //Si le caractère est / c'est un commentaire --> dans console
+                        if (data.charAt(0) == '/') {
+                            logIfDebug('Commentaires: ' + data + ' on ' + mod.name);
+                        }
+                        else {
+                            logIfDebug('Error :' + data)
+                        }
                     }
-                }
+                });
             });
-        });
 
-        function logElements(elements) {
-            elements.forEach(function (element) {
-                console.log(element);
-            });
-        }
-
-        function logIfDebug(msg) {
-            if (debug == true) {
-                console.log(msg);
+            function logElements(elements) {
+                elements.forEach(function (element) {
+                    logIfDebug(element);
+                });
             }
-        }
 
-        function parseData(data, next) {
-            var cleanData = [];
-            var dataSplitted = data.split(',');
-            var ModuleID = dataSplitted[0].substring(1);
-            //console.logIfDebug('BoardId : ' + ModuleID);
-            for (var i in dataSplitted) {
-
-                if (i != 0) {
-                    var dataReSplitted = dataSplitted[i].split('=');
-                    dataReSplitted[1] = removeEnter(dataReSplitted[1]);
-
-                    cleanData.push({
-                        boardID: dataSplitted[0].substring(1),
-                        sensorID: dataReSplitted[0],
-                        sensorVal: dataReSplitted[1]
-                    });
-
+            function logIfDebug(msg) {
+                if (debug == true) {
+                    console.log(msg);
                 }
-                //Voir si faire un test de "split(*)" sur dataReSplitted[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
             }
-            next(cleanData, null);
-        };
 
-        function removeEnter(data) {
-            if (stringBuilder(data).contains('\r')) {
-                return stringBuilder(data).chompRight('\r').s;
+            function parseData(data, next) {
+                var cleanData = [];
+                var dataSplitted = data.split(',');
+                var ModuleID = dataSplitted[0].substring(1);
+                //console.logIfDebug('BoardId : ' + ModuleID);
+                for (var i in dataSplitted) {
+
+                    if (i != 0) {
+                        var dataReSplitted = dataSplitted[i].split('=');
+                        dataReSplitted[1] = removeEnter(dataReSplitted[1]);
+
+                        cleanData.push({
+                            boardID: dataSplitted[0].substring(1),
+                            sensorID: dataReSplitted[0],
+                            sensorVal: dataReSplitted[1]
+                        });
+
+                    }
+                    //Voir si faire un test de "split(*)" sur dataReSplitted[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
+                }
+                next(cleanData, null);
+            };
+
+            function removeEnter(data) {
+                if (stringBuilder(data).contains('\r')) {
+                    return stringBuilder(data).chompRight('\r').s;
+                }
+                else {
+                    return data;
+                }
             }
-            else {
-                return data;
-            }
+            
         }
-
-
-
-    return {
-        
     };
-
 };
