@@ -1,6 +1,6 @@
 module.exports = function (store){
     var SeqInit = require('sequelize');
-    var sequelize = new SeqInit(store.name,store.username,store.password)
+    var sequelize = new SeqInit(store.name,store.username,store.password) //TODO: Passer config avec "_logging":null
     var Data = sequelize.define('t_sensors', {
                 BID: SeqInit.STRING,
                 SID: SeqInit.STRING,
