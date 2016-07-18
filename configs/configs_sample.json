@@ -4,11 +4,16 @@
         "password": "",
         "name": ""
     },
-    //TODO: multiple modules
-    "Module": {
-        "port": "",
-        "rate": 9600
-    },
+    "Modules": [
+        {
+            "port": "COM3",
+            "rate": 9600
+        },
+        {
+            "port": "COM4",
+            "rate": 4800
+        }
+    ],
     "logging": {
         "logToConsole": true
     }

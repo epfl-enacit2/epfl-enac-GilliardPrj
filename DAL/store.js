@@ -1,7 +1,7 @@
 module.exports = function (store){
     var SeqInit = require('sequelize');
     var sequelize = new SeqInit(store.name,store.username,store.password)
-    var Data = sequelize.define('t_sensorvalues', {
+    var Data = sequelize.define('t_sensors', {
                 BID: SeqInit.STRING,
                 SID: SeqInit.STRING,
                 SVal: SeqInit.FLOAT

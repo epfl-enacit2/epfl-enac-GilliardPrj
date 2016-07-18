@@ -20,9 +20,6 @@ $RECYCLE.BIN/
 /.vscode/**
 /node_modules/**
 /configs/configs.json
-/DAL/testBDD1.sql
-/DAL/testBDD2.sql
-
 
 # =========================
 # Operating System Files
