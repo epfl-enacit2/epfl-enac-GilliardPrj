@@ -63,7 +63,7 @@ module.exports = function (properties) {
                         console.log(msg);
                         break;
                     case "fichier":
-                        fs.appendFile("log.log",'\n'+ util.inspect(msg));
+                        fs.appendFile("GilliardPrj.log",'\n'+ util.inspect(msg));
                         break;
                     case "":
                         break;

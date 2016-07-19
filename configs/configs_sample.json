@@ -13,7 +13,7 @@
             {
                 "port": "COM3", //Attention clé de lien avec l'sysAcqu (ne pas switcher les ports usb sans modifier la conf)
                 "rate": 9600,
-                "name": "FirstModule", //optionel
+                "name": "FirstModule", //optionel mais préférable pour le log
                 "model": "Arduino UNO", //optionel
                 "sensors": [ //optionel
                     {
@@ -28,7 +28,7 @@
             {
                 "port": "COM4",
                 "rate": 4800,
-                 "name": "SecondModule", //optionel
+                "name": "SecondModule", //optionel mais préférable pour le log
                 "model": "Arduino DUE", //optionel
                 "sensors": [ //optionel
                     {
