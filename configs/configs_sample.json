@@ -1,20 +1,45 @@
 {
-    "store": {
+    "db": {
+        "hostname": "",
         "username": "",
         "password": "",
         "name": ""
     },
-    "Modules": [
-        {
-            "port": "COM3",
-            "rate": 9600
-        },
-        {
-            "port": "COM4",
-            "rate": 4800
-        }
-    ],
-    "logging": {
-        "logToConsole": true
+    "logging": "console", //optionel choix "console" ou "fichier"
+    "acquisitionSys": {
+        "responsible": "mbonjour <mickael.bonjour@epfl.ch>",
+        "sciper": "240312",
+        "boards": [
+            {
+                "port": "COM3", //Attention clé de lien avec l'sysAcqu (ne pas switcher les ports usb sans modifier la conf)
+                "rate": 9600,
+                "name": "FirstModule", //optionel
+                "model": "Arduino UNO", //optionel
+                "sensors": [ //optionel
+                    {
+                        "SID": "", //optionel sauf si vous mettez des valeurs dans les champs suivant
+                        "Type": "Temperature", //optionel
+                        "Model": "", //optionel
+                        "Unit": "° Celsius", //optionel
+                        "BoardPins": "12:13" //optionel
+                    }
+                ]
+            },
+            {
+                "port": "COM4",
+                "rate": 4800,
+                 "name": "SecondModule", //optionel
+                "model": "Arduino DUE", //optionel
+                "sensors": [ //optionel
+                    {
+                        "SID": "", //optionel sauf si vous mettez des valeurs dans les champs suivant
+                        "Type": "Pression atmosphérique", //optionel
+                        "Model": "", //optionel
+                        "Unit": "pascals", //optionel
+                        "BoardPins": "14:15" //optionel
+                    }
+                ]
+            }
+        ]
     }
 }
