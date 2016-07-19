@@ -5,7 +5,7 @@
         "password": "",
         "name": ""
     },
-    "logging": "console", //optionel choix "console" ou "fichier"
+    "logging": "console", //optionel choix :  "console" ou "fichier" ou "" qui ne fera rien
     "acquisitionSys": {
         "responsible": "mbonjour <mickael.bonjour@epfl.ch>",
         "sciper": "240312",

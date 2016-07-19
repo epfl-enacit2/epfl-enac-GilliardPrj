@@ -1,10 +1,10 @@
 var configs = require('./configs')(require('path').join(__dirname, 'configs/configs.json'));
 var sPort = require('serialport');
-var store = require('./DAL/store.js')(configs.store);
+var store = require('./DAL/store.js')(configs.db);
 var acquisition = require('./acquisition')({sPort: sPort,store:store,configs:configs});
 
-configs.Modules.map(function (mod) {
-    acquisition.register(mod, function (acquisitionData) {
+configs.acquisitionSys.boards.map(function (board) {
+    acquisition.register(board, function (acquisitionData) {
         //store.Data.create(acquisitionData)
             //.then(function(){
 

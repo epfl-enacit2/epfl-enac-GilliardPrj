@@ -1,4 +1,6 @@
 var stringBuilder = require('string');
+var fs = require("fs");
+var util = require('util');
 
 module.exports = function (properties) {
 
@@ -9,7 +11,7 @@ module.exports = function (properties) {
         register: function (mod) {
 
             var ToSave = [];
-            var debug = properties.configs.logging.logToConsole;
+            var debug = properties.configs.logging;
             var port = new SerialPort(mod.port, {
                 baudrate: mod.rate,
                 parser: properties.sPort.parsers.readline('\n')
@@ -56,8 +58,17 @@ module.exports = function (properties) {
             }
 
             function logIfDebug(msg) {
-                if (debug == true) {
-                    console.log(msg);
+                switch(debug){
+                    case "console": 
+                        console.log(msg);
+                        break;
+                    case "fichier":
+                        fs.appendFile("log.log",'\n'+ util.inspect(msg));
+                        break;
+                    case "":
+                        break;
+                    default:
+
                 }
             }
 
