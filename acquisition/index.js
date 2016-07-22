@@ -31,7 +31,7 @@ module.exports = function (properties) {
                                 if (element.sensorID.charAt(0) != "X" | "x") {
                                     //voir pour sortir les données car port.on infernal
                                     ToSave.push(element);
-                                    properties.store.insert(element);
+                                    //properties.store.insert(element);
                                     
                                 }
                             });
