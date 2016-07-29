@@ -40,7 +40,6 @@ module.exports = function (properties) {
                                             acquisitionData:element,
                                             currentBoard:mod
                                         });
-                                    
                                 }
                             });
 

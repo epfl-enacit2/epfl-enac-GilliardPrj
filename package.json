@@ -5,7 +5,7 @@
   "description": "Serial Acquisition for Arduinos",
   "author": "Mickael Bonjour <mbonjourprotonmail.ch>",
   "dependencies": {
-    "epfl-enac-gilliarddb": "0.0.2",
+    "epfl-enac-gilliarddb": "0.0.4",
     "mysql": "^2.10.2",
     "sequelize": "^3.23.2",
     "serialport": "^3.1.2",
