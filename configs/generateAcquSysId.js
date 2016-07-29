@@ -3,8 +3,8 @@ module.exports = function () {
     var uuid = require('uuid');
     var retour;
     try {
-        fs.accessSync("secret.txt", fs.R_OK | fs.W_OK)
-        retour = fs.readFileSync("secret.txt","UTF-8");
+        fs.accessSync("./configs/secret.txt", fs.R_OK | fs.W_OK)
+        retour = fs.readFileSync("./configs/secret.txt","UTF-8");
 
     } catch (e) {
         var retour = uuid.v1();
