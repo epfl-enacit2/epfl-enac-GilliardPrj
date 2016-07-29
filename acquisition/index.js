@@ -8,7 +8,7 @@ module.exports = function (properties) {
 
     //var port = new SerialPort("COM3", {
     return {
-        register: function (mod) {
+        register: function (mod,store) {
 
             var ToSave = [];
             var debug = properties.configs.logging;
@@ -31,7 +31,14 @@ module.exports = function (properties) {
                                 if (element.sensorID.charAt(0) != "X" | "x") {
                                     //voir pour sortir les données car port.on infernal
                                     ToSave.push(element);
-                                    //properties.store.insert(element);
+                                    element.acquisitionSysId = properties.configs.acquisitionSys.id;
+                                    properties.store.repository.insertSensorValue(
+                                        {
+                                            models:properties.store.models,
+                                            configs:properties.configs,
+                                            acquisitionData:element,
+                                            currentBoard:mod
+                                        });
                                     
                                 }
                             });

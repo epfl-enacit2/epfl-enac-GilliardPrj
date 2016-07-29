@@ -1,5 +1,5 @@
 {
-    "db": {
+    "db": { //IMPORTANT
         "hostname": "",
         "username": "",
         "password": "",
@@ -9,6 +9,7 @@
     "acquisitionSys": {
         "responsible": "mbonjour <mickael.bonjour@epfl.ch>",
         "sciper": "240312",
+        "AppVersion":"1.0",
         "boards": [
             {
                 "port": "COM3", //Attention clé de lien avec l'sysAcqu (ne pas switcher les ports usb sans modifier la conf)
