@@ -10,7 +10,7 @@ par un module npm externe mais avec des configs locales.
 ```bash
 $ npm install
 ```
-Cette commande va installer les modules nécessaires au bon fonctionnement du systéme d'acquisition.
+    Cette commande va installer les modules nécessaires au bon fonctionnement du systéme d'acquisition.
 
 * Une fois les modules nécessaires installés il vous faut modifier le fichier *congis_sample.json* dans le dossier *configs* en suivant les instructions des commentaires, une fois fait il vous faut renommer ce fichier *configs.json* et supprimer les commentaires.
 
@@ -18,4 +18,4 @@ Cette commande va installer les modules nécessaires au bon fonctionnement du sy
 
 ## Instance actuelle
 
-Pour le moment le logiciel a besoin de l'ID de l'AcquisitionSys dans le fichier de configs, et le fichier de configs ne doit pas contenir de Sensors dû au module npm epfl-enac-gilliardDb qui n'est pas encore totalement fini.
+Pour le moment le logiciel  le fichier de configs ne doit pas contenir de Sensors dû au module npm epfl-enac-gilliardDb qui n'est pas encore totalement fini.

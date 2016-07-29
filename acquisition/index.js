@@ -1,6 +1,7 @@
 var stringBuilder = require('string');
 var fs = require("fs");
 var util = require('util');
+var acquSysId = require('../configs/generateAcquSysId')();
 
 module.exports = function (properties) {
 
@@ -31,7 +32,7 @@ module.exports = function (properties) {
                                 if (element.sensorID.charAt(0) != "X" | "x") {
                                     //voir pour sortir les données car port.on infernal
                                     ToSave.push(element);
-                                    element.acquisitionSysId = properties.configs.acquisitionSys.id;
+                                    element.acquisitionSysId = acquSysId;
                                     properties.store.repository.insertSensorValue(
                                         {
                                             models:properties.store.models,
