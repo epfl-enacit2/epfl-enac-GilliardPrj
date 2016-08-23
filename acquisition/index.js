@@ -1,19 +1,18 @@
 var stringBuilder = require('string');
 var fs = require("fs");
 var util = require('util');
+var sPort = require('serialport');
+var SerialPort = sPort.SerialPort;
 
-module.exports = function (properties) {
-    var SerialPort = properties.sPort.SerialPort;
-
-    //var port = new SerialPort("COM3", {
+module.exports = function (logging) {
     return {
         listen: function (mod, callback) {
 
             var ToSave = [];
-            var debug = properties.logging;
+            var debug = logging;
             var port = new SerialPort(mod.port, {
                 baudrate: mod.rate,
-                parser: properties.sPort.parsers.readline('\n')
+                parser: sPort.parsers.readline('\n')
             });
 
             port.on('open', function () {
@@ -54,12 +53,12 @@ module.exports = function (properties) {
             }
 
             function logIfDebug(msg) {
-                switch(debug){
-                    case "console": 
+                switch (debug) {
+                    case "console":
                         console.log(msg);
                         break;
                     case "fichier":
-                        fs.appendFile("GilliardPrj.log",'\n'+ util.inspect(msg));
+                        fs.appendFile("GilliardPrj.log", '\n' + util.inspect(msg));
                         break;
                     case "":
                         break;
@@ -99,7 +98,7 @@ module.exports = function (properties) {
                     return data;
                 }
             }
-            
+
         }
     };
 };
