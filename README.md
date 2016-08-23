@@ -18,4 +18,4 @@ $ npm install
 
 ## Instance actuelle
 
-Pour le moment le logiciel  le fichier de configs ne doit pas contenir de Sensors dû au module npm epfl-enac-gilliardDb qui n'est pas encore totalement fini.
+Pour le moment le logiciel ne prends pas automatiquement le nom de la machine il faut donc la mettre en dur dans le fichier configs
