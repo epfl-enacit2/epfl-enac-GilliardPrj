@@ -1,6 +1,7 @@
+var fs = require('fs');
+var uuid = require('uuid');
+
 module.exports = function () {
-    var fs = require('fs');
-    var uuid = require('uuid');
     var guid;
     //TODO: gérer secret dans configs / index.js 
     try {
