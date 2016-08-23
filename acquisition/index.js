@@ -1,18 +1,16 @@
 var stringBuilder = require('string');
 var fs = require("fs");
 var util = require('util');
-var acquSysId = require('../configs/generateAcquSysId')();
 
 module.exports = function (properties) {
-
     var SerialPort = properties.sPort.SerialPort;
 
     //var port = new SerialPort("COM3", {
     return {
-        register: function (mod,store) {
+        listen: function (mod, callback) {
 
             var ToSave = [];
-            var debug = properties.configs.logging;
+            var debug = properties.logging;
             var port = new SerialPort(mod.port, {
                 baudrate: mod.rate,
                 parser: properties.sPort.parsers.readline('\n')
@@ -30,16 +28,7 @@ module.exports = function (properties) {
                             logElements(cleanData);
                             cleanData.map(function (element) {
                                 if (element.sensorID.charAt(0) != "X" | "x") {
-                                    //voir pour sortir les données car port.on infernal
-                                    ToSave.push(element);
-                                    element.acquisitionSysId = acquSysId;
-                                    properties.store.repository.insertSensorValue(
-                                        {
-                                            models:properties.store.models,
-                                            configs:properties.configs,
-                                            acquisitionData:element,
-                                            currentBoard:mod
-                                        });
+                                    callback(element);
                                 }
                             });
 
