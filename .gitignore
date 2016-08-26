@@ -20,6 +20,8 @@ $RECYCLE.BIN/
 /.vscode/**
 /node_modules/**
 /configs/configs.json
+/configs/completeConfigs.js
+
 
 # =========================
 # Operating System Files

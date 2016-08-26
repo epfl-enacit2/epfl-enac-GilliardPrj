@@ -2,6 +2,7 @@
 var configs = require('./configs')(require('path').join(__dirname, 'configs/configs.json'));
 var store = require('epfl-enac-gilliarddb')(configs.db);
 var acquisition = require('./acquisition')(configs.logging);
+var completeConfigs = require('./configs/completeConfigs.js');
 
 configs.acquisitionSys.boards.map(function (board) {
     acquisition.listen(board, function (acquisitionData) {
