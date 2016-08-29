@@ -6,6 +6,7 @@ var sPort = require('serialport');
 var SerialPort = sPort.SerialPort;
 
 module.exports = function (logging) {
+
     return {
         listen: function (mod, callback) {
             var port = new SerialPort(mod.port, {
@@ -25,20 +26,6 @@ module.exports = function (logging) {
             });
         }
     };
-    function logElements(elements) {
-        elements.forEach(function (element) {
-            logIfDebug(element);
-        });
-    }
-
-    function removeEnter(data) {
-        if (data.includes('\r')) {
-            return data.slice(0, -1);
-        }
-        else {
-            return data;
-        }
-    }
 
     function formatData(data, mod, callback) {
         if (data.charAt(0) == '>') {
@@ -54,21 +41,6 @@ module.exports = function (logging) {
             else {
                 logIfDebug('Error :' + data);
             }
-        }
-    }
-
-    function logIfDebug(msg) {
-        switch (logging) {
-            case "console":
-                console.log(msg);
-                break;
-            case "fichier":
-                fs.appendFile("GilliardPrj.log", '\n' + util.inspect(msg));
-                break;
-            case "":
-                break;
-            default:
-
         }
     }
 
@@ -94,4 +66,31 @@ module.exports = function (logging) {
             //Voir si faire un test de "split(*)" sur dataReSplitted[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
         }
     };
+    function logIfDebug(msg) {
+        switch (logging) {
+            case "console":
+                console.log(msg);
+                break;
+            case "fichier":
+                fs.appendFile("./logs/GilliardPrj.log", '\n' + util.inspect(msg));
+                break;
+            case "":
+                break;
+            default:
+        }
+    };
 };
+function logElements(elements) {
+    elements.forEach(function (element) {
+        logIfDebug(element);
+    });
+}
+
+function removeEnter(data) {
+    if (data.includes('\r')) {
+        return data.slice(0, -1);
+    }
+    else {
+        return data;
+    }
+}
