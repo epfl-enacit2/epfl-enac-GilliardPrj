@@ -15,9 +15,15 @@ module.exports = function (configFilePath) {
     return jsonConfigs;
 }
 
+    /**
+     * Verify that all the configurations are writed and correct
+     *
+     * @param {jsonConfigs} The configurations parsed in JSON
+     * @param {callback} Return jsonConfigs if it's OK
+     */
 function verifyConfigFile(jsonConfigs, callback) {
     var notNullPropertiesDB = ['hostname', 'username', 'password', 'name'];
-    var notNullPropertiesBoards = ['port', 'rate', 'name'];
+    var notNullPropertiesBoards = ['port', 'rate'];
     var notNullPropertiesAcquSys = ['sciper'];
 
     testProperties(jsonConfigs.db, notNullPropertiesDB, 'db');

@@ -3,7 +3,7 @@
 ## Buts
 Le projet GilliardPrj sert à acquérir des données envoyées par une carte Arduino ayant différents 
 capteurs sur le port série d'un systéme d'acquisition (PC) et de les pusher sur une BDD SQL configurées 
-par un module npm externe mais avec des configs locales.
+par un module npm externe (epfl-enac-gilliarddb --> [readme](https://github.com/epfl-enacit2/epfl-enac-GilliardDB "Lien vers le github epfl-enac-GilliardDB") du projet pour plus d'infos) mais avec des configs locales.
 
 ## Utilistation
 * Récupérer le projet GilliardPrj avec tout ces fichiers puis à la racine lancer 
@@ -20,13 +20,17 @@ $ npm install
     ```bash
     $ npm start
     ```
-    Et Ctrl + C pour arrêter le programme. Le programme sera relancé au moins 10x si des erreurs surviennent, les logs seront de toutes façons dans la console (cela veut aussi dire que vous pouvez activez l'option de logging dans un fichier dans le fichier de configs).
+    Et 
+    ```bash
+    $ npm stop
+    ```
+    pour arrêter le programme. Le programme sera relancé au moins 10x si des erreurs surviennent, les logs seront de toutes façons dans un fichier dans le repertoire "logs" si les options de logging sont sur "console".
 
  *  Et la deuxième et de lancer un terminal node et de lancer
     ```bash
     $ node app.js
     ```
-    Ceci lancera une seule instance, s'il y a une erreur l'appli s'arrêtera
+    Ceci lancera une seule instance, s'il y a une erreur l'appli s'arrêtera tout simplement
 
 ## Instance actuelle
 
