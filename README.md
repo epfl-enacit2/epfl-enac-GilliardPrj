@@ -25,7 +25,11 @@ $ npm install
     $ npm stop
     ```
     pour arrêter le programme. Le programme sera relancé au moins 10x si des erreurs surviennent, les logs seront de toutes façons dans un fichier dans le repertoire "logs" si les options de logging sont sur "console".
-
+    
+    Et afin de voir quels sont les processus forever actuels sur votre machine faites :
+    ```bash
+    $ npm test
+    ```
  *  Et la deuxième et de lancer un terminal node et de lancer
     ```bash
     $ node app.js

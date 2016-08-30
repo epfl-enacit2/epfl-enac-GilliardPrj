@@ -17,6 +17,6 @@
   "scripts": {
     "start": "forever start -o ./logs/logForever.log -m 10 app.js ",
     "stop": "forever stop app.js",
-    "list": "forever list"
+    "test": "forever list"
   }
 }
