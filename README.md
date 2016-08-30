@@ -10,7 +10,7 @@ par un module npm externe (epfl-enac-gilliarddb --> [readme](https://github.com/
 ```bash
 $ npm install
 ```
-    Cette commande va installer les modules nécessaires au bon fonctionnement du systéme d'acquisition.
+Cette commande va installer les modules nécessaires au bon fonctionnement du systéme d'acquisition.
 
 * Une fois les modules nécessaires installés il vous faut modifier le fichier *congis_sample.json* dans le dossier *configs* en suivant les instructions des commentaires, une fois fait il vous faut renommer ce fichier *configs.json* et supprimer les commentaires.
 
@@ -25,7 +25,7 @@ $ npm install
     $ npm stop
     ```
     pour arrêter le programme. Le programme sera relancé au moins 10x si des erreurs surviennent, les logs seront de toutes façons dans un fichier dans le repertoire "logs" si les options de logging sont sur "console".
-    
+
     Et afin de voir quels sont les processus forever actuels sur votre machine faites :
     ```bash
     $ npm test
