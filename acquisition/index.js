@@ -8,6 +8,13 @@ var SerialPort = sPort.SerialPort;
 module.exports = function (logging) {
 
     return {
+
+        /**
+        * A function who open and listen to the ports specified in the configs file
+        *
+        * @param {mod} Module who's sending data
+        * @param {callback} A callback who's sending back "cleanData". CleanData is an element with a BoardID,sensorID and sensorVal
+        */
         listen: function (mod, callback) {
             var port = new SerialPort(mod.port, {
                 baudrate: mod.rate,
@@ -20,6 +27,7 @@ module.exports = function (logging) {
                     logIfDebug(`data start on ${mod.name}`);
                     formatData(data, mod, function (cleanData) {
                         logIfDebug(cleanData);
+                        //This Callback return the data to save in DB
                         callback(cleanData);
                     });
                     logIfDebug("data end on " + mod.name + "\r");
@@ -27,6 +35,7 @@ module.exports = function (logging) {
             });
         }
     };
+    
     /**
      * Determine if data is commentary, error or data to parse and save.
      *
@@ -41,7 +50,7 @@ module.exports = function (logging) {
             });
         }
         else {
-            //Si le caractère est / c'est un commentaire --> dans console
+            //If char is / it's remark --> in Log
             if (data.charAt(0) == '/') {
                 logIfDebug('Commentaires: ' + data + ' on ' + mod.name);
             }
@@ -50,6 +59,7 @@ module.exports = function (logging) {
             }
         }
     }
+
     /**
      * Parse the data sending by the board, this function parse the data in a object like {boardID,sensorID,sensorVal}
      *

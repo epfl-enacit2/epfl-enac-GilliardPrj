@@ -15,7 +15,7 @@ configs.acquisitionSys.boards.map(function (board) {
             currentBoard: board
         });
         } catch (error) {
-            fs.appendFile('./logs/errors.txt',error);//loguer fichier ou console ? --> séparer du reste (avec log des entrées failed) chemin dans configs ?
+            fs.appendFile('./logs/errors.txt',error);
         }
     });
 });
