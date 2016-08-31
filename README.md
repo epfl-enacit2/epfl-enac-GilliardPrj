@@ -12,11 +12,11 @@ $ npm install
 ```
 Cette commande va installer les modules nécessaires au bon fonctionnement du systéme d'acquisition.
 
-* Une fois les modules nécessaires installés il vous faut modifier le fichier *congis_sample.json* dans le dossier *configs* en suivant les instructions des commentaires, une fois fait il vous faut renommer ce fichier *configs.json* et supprimer les commentaires.
+* Une fois les modules nécessaires installés il vous faut modifier le fichier *configs_sample.json* dans le dossier *configs* en suivant les instructions des commentaires, une fois fait il vous faut renommer ce fichier *configs.json* et supprimer les commentaires.
 
 * Lancer le programme ! Et là 2 options s'offrent à vous ;
 
- *  à l'aide du module forever (relance le programme  s'il déclenche une erreur,le relance au moins 10x) dans ce cas lancer la ligne 
+ *  à l'aide du module forever (relance le programme  s'il déclenche une erreur,le relance au moins 20x) dans ce cas lancer la ligne 
     ```bash
     $ npm start
     ```
