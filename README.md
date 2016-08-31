@@ -24,9 +24,9 @@ Cette commande va installer les modules nécessaires au bon fonctionnement du sy
     ```bash
     $ npm stop
     ```
-    pour arrêter le programme. Le programme sera relancé au moins 10x si des erreurs surviennent, les logs seront de toutes façons dans un fichier dans le repertoire "logs" si les options de logging sont sur "console".
+    pour arrêter le programme. Le programme sera relancé si des erreurs surviennent, les logs seront de toutes façons dans un fichier dans le repertoire "logs" si les options de logging sont sur "console". Les options de logging sur "fichier" créera un fichier dans logs aussi mais l'option ""ne fera aucun log.
 
-    Et afin de voir quels sont les processus forever actuels sur votre machine faites :
+    Et afin de voir quels sont les processus actuels du programme sur votre machine faites :
     ```bash
     $ npm test
     ```

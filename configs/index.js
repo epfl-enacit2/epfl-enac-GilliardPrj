@@ -6,17 +6,17 @@ module.exports = function (configFilePath) {
     var jsonConfigs = JSON.parse(fs.readFileSync(configFilePath, 'UTF-8'));
 
     verifyConfigFile(jsonConfigs, function () {
+        //Test if an AcquSysId is defined yet, if it's not it will add it
         if (!jsonConfigs.acquisitionSys.hasOwnProperty('secret')) {
             jsonConfigs.acquisitionSys.secret = uuid.v1();
             fs.writeFile(configFilePath, JSON.stringify(jsonConfigs));
         }
     });
-
     return jsonConfigs;
 }
 
 /**
-* Verify that all the configurations are writed and correct
+* Verify that all the needed configurations are writed (configured)
 *
 * @param {jsonConfigs} The configurations parsed in JSON
 * @param {callback} Return jsonConfigs if it's OK

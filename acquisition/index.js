@@ -3,7 +3,7 @@
 var fs = require("fs");
 var util = require('util');
 var sPort = require('serialport');
-var SerialPort = sPort.SerialPort;
+var serialPort = sPort.SerialPort;
 
 module.exports = function (logging) {
 
@@ -16,7 +16,7 @@ module.exports = function (logging) {
         * @param {callback} A callback who's sending back "cleanData". CleanData is an element with a BoardID,sensorID and sensorVal
         */
         listen: function (mod, callback) {
-            var port = new SerialPort(mod.port, {
+            var port = new serialPort(mod.port, {
                 baudrate: mod.rate,
                 parser: sPort.parsers.readline('\n')
             });
@@ -35,7 +35,7 @@ module.exports = function (logging) {
             });
         }
     };
-    
+
     /**
      * Determine if data is commentary, error or data to parse and save.
      *
@@ -50,7 +50,7 @@ module.exports = function (logging) {
             });
         }
         else {
-            //If char is / it's remark --> in Log
+            //If first char is / it's a remark --> in Log
             if (data.charAt(0) == '/') {
                 logIfDebug('Commentaires: ' + data + ' on ' + mod.name);
             }
@@ -67,24 +67,23 @@ module.exports = function (logging) {
      * @param {next} Callback who return the object
      */
     function parseData(data, next) {
-        var dataSplitted = data.split(',');
-        var ModuleID = dataSplitted[0].substring(1);
-        for (var i in dataSplitted) {
+        var dataSplittedForIds = data.split(',');
+        for (var i in dataSplittedForIds) {
 
             if (i != 0) {
-                var dataReSplitted = dataSplitted[i].split('=');
-                dataReSplitted[1] = dataReSplitted[1].replace(/\r?\n|\r/g, "");
+                var dataSplittedForValues = dataSplittedForIds[i].split('=');
+                dataSplittedForValues[1] = dataSplittedForValues[1].replace(/\r?\n|\r/g, "");
 
-                if (dataReSplitted[0].charAt(0) != "X" | "x") {
+                if (dataSplittedForValues[0].charAt(0) != "X" | "x") {
                     next({
-                        boardID: dataSplitted[0].substring(1),
-                        sensorID: dataReSplitted[0],
-                        sensorVal: dataReSplitted[1]
+                        boardID: dataSplittedForIds[0].substring(1),
+                        sensorID: dataSplittedForValues[0],
+                        sensorVal: dataSplittedForValues[1]
                     })
                 }
 
             }
-            //Voir si faire un test de "split(*)" sur dataReSplitted[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
+            //Voir si faire un test de "split(*)" sur dataSplittedForValues[1] avec la dernière incrémentation (Vérifier qu'il y aie pas de checksum *)
         }
     };
     /**

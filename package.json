@@ -11,9 +11,8 @@
     "serialport": "^3.1.2",
     "tedious": "^1.14.0",
     "uuid": "^2.0.2",
-    "forever":"^0.15.2"
+    "forever": "^0.15.2"
   },
-
   "scripts": {
     "start": "forever start -o ./logs/logForever.log -m 20 app.js ",
     "stop": "forever stop app.js",

@@ -6,16 +6,17 @@ var fs = require('fs');
 
 configs.acquisitionSys.boards.map(function (board) {
     acquisition.listen(board, function (acquisitionData) {
+        //Add AcquSysId to AcquData for the npm module
         acquisitionData.acquisitionSysId = configs.acquisitionSys.secret;
         try {
             store.repository.insertSensorValue({
-            models: store.models,
-            configs: configs,
-            acquisitionData: acquisitionData,
-            currentBoard: board
-        });
+                models: store.models,
+                configs: configs,
+                acquisitionData: acquisitionData,
+                currentBoard: board
+            });
         } catch (error) {
-            fs.appendFile('./logs/errors.txt',error);
+            fs.appendFile('./logs/errors.txt', error);
         }
     });
 });

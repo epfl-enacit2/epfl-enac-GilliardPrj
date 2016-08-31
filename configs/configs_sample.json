@@ -17,7 +17,7 @@
                 "name": "FirstModule", //optionel mais préférable pour le log
                 "model": "Arduino UNO", //optionel
                 "sensors": { //!!!! optionel 
-                    "TC1":{
+                    "TC1": {
                         "Type": "Temperature", //optionel
                         "Model": "", //optionel
                         "Unit": "° Celsius", //optionel
@@ -31,7 +31,7 @@
                 "name": "SecondModule", //optionel mais préférable pour le log
                 "model": "Arduino DUE", //optionel
                 "sensors": { //!!!! optionel 
-                    "P01":{
+                    "P01": {
                         "Type": "Pression atmosphérique", //optionel
                         "Model": "", //optionel
                         "Unit": "pascals", //optionel
