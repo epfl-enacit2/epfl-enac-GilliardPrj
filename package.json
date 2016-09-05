@@ -6,15 +6,15 @@
   "author": "Mickael Bonjour <mbonjourprotonmail.ch>",
   "dependencies": {
     "epfl-enac-gilliarddb": "^0.0.5",
+    "forever": "^0.15.2",
     "mysql": "^2.10.2",
     "sequelize": "^3.23.2",
     "serialport": "^3.1.2",
     "tedious": "^1.14.0",
-    "uuid": "^2.0.2",
-    "forever": "^0.15.2"
+    "uuid": "^2.0.2"
   },
   "scripts": {
-    "start": "forever start -o ./logs/logForever.log -m 20 app.js ",
+    "start": "forever start -m 10 -e ./logs/errFile.log --append -o ./logs/outFile.log --append app.js ",
     "stop": "forever stop app.js",
     "test": "forever list"
   }

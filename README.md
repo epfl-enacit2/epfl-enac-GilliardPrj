@@ -25,13 +25,13 @@ Cette commande va installer les modules nécessaires au bon fonctionnement du sy
     $ npm stop
     ```
     pour arrêter le programme.
-    Le programme sera relancé si des erreurs surviennent, les logs seront de toutes façons dans un fichier dans le repertoire "logs" si les options de logging sont sur "console". Les options de logging sur "fichier" créera un fichier dans logs aussi mais l'option ""ne fera aucun log.
+    Le programme sera relancé si des erreurs surviennent, les logs seront de toutes façons dans un fichier dans le repertoire "logs" si les options de logging sont sur "console". Les options de logging sur "fichier" créera un fichier dans logs aussi mais l'option "" ne fera aucun log.
 
     Et afin de voir quels sont les processus actuels du programme sur votre machine faites :
     ```bash
     $ npm test
     ```
-    Si vous voulez le nombre de fois que le programme sera relancéaprès une erreur vous pouvez allez dans le fichier *package.json* et modifier le chiffre "20".
+    Si vous voulez le nombre de fois que le programme sera relancéaprès une erreur vous pouvez allez dans le fichier *package.json* et modifier le chiffre "10".
     ```json
     "start": "forever start -o ./logs/logForever.log -m 20 app.js ",
     ```

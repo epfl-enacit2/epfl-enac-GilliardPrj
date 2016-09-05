@@ -16,7 +16,7 @@ configs.acquisitionSys.boards.map(function (board) {
                 currentBoard: board
             });
         } catch (error) {
-            fs.appendFile('./logs/errors.txt', error);
+            fs.appendFile('./logs/insertDbErrors.log', error);
         }
     });
 });

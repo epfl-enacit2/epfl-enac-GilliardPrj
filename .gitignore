@@ -20,7 +20,9 @@ $RECYCLE.BIN/
 /.vscode/**
 /node_modules/**
 /configs/configs.json
-/logs/logForever.log
+/logs/errFile.log
+/logs/outFile.log
+
 
 
 # =========================
