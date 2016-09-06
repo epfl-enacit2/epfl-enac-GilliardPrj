@@ -11,7 +11,7 @@
     "uuid": "^2.0.2"
   },
   "scripts": {
-    "start": "pm2 start app.js --merge-logs -e ./logs/errFile.log -o ./logs/outFile.log -l ./logs/logs.log",
+    "start": "pm2 start app.js --merge-logs -e ./logs/errFile.log -o ./logs/outFile.log",
     "stop": "pm2 kill",
     "test": "pm2 list"
   }
