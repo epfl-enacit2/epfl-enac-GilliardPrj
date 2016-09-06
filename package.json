@@ -6,16 +6,13 @@
   "author": "Mickael Bonjour <mbonjourprotonmail.ch>",
   "dependencies": {
     "epfl-enac-gilliarddb": "^0.0.5",
-    "forever": "^0.15.2",
-    "mysql": "^2.10.2",
-    "sequelize": "^3.23.2",
+    "pm2": "^1.1.3",
     "serialport": "^3.1.2",
-    "tedious": "^1.14.0",
     "uuid": "^2.0.2"
   },
   "scripts": {
-    "start": "forever start -m 10 -e ./logs/errFile.log --append -o ./logs/outFile.log --append app.js ",
-    "stop": "forever stop app.js",
-    "test": "forever list"
+    "start": "pm2 start app.js --merge-logs -e ./logs/errFile.log -o ./logs/outFile.log -l ./logs/logs.log",
+    "stop": "pm2 kill",
+    "test": "pm2 list"
   }
 }
