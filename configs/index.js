@@ -3,7 +3,7 @@ var fs = require('fs');
 var uuid = require('uuid');
 
 module.exports = function (configFilePath) {
-    var jsonConfigs = JSON.parse(fs.readFileSync(configFilePath, 'UTF-8'));
+    var jsonConfigs = JSON.parse(fs.readFileSync(configFilePath));
 
     verifyConfigFile(jsonConfigs, function () {
         //Test if an AcquSysId is defined yet, if it's not it will add it
