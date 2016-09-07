@@ -42,17 +42,17 @@ Lancer le programme ! Et là 2 options s'offrent à vous ;
     $ npm test
     ```
   * Pour plus d'options telles que le monitoring à distance p.ex. lancer 
-    ```bash
+    ```
     $ npm install pm2 -g
     ```
     ensuite pour linker et faire du monitoring à distance créer un [compte](https://app.keymetrics.io/#/register "Register for KeyMetrics") puis créer un "bucket" pui suiver les instructions
-    ```bash
+    ```
     $ pm2 link {secret key} {public key} app.js
     ```
  * Si des erreurs surviennent et que le status du process se met en errored veuillerz stopper le process (npm stop), corriger le problème puis restart (npm start).
 
 *  Et la deuxième et de lancer un terminal node et de lancer
-    ```bash
+    ```
     $ node app.js
     ```
     Ceci lancera une seule instance, s'il y a une erreur l'appli s'arrêtera tout simplement
