@@ -3,7 +3,6 @@
 var fs = require("fs");
 var util = require('util');
 var sPort = require('serialport');
-var serialPort = sPort.SerialPort;
 
 module.exports = function (logging) {
 
@@ -16,7 +15,7 @@ module.exports = function (logging) {
         * @param {callback} A callback who's sending back "cleanData". CleanData is an element with a BoardID,sensorID and sensorVal
         */
         listen: function (mod, callback) {
-            var port = new serialPort(mod.port, {
+            var port = new sPort(mod.port, {
                 baudrate: mod.rate,
                 parser: sPort.parsers.readline('\n')
             });
@@ -52,7 +51,7 @@ module.exports = function (logging) {
         else {
             //If first char is / it's a remark --> in Log
             if (data.charAt(0) == '/') {
-                logIfDebug('Commentaires: ' + data + ' on ' + mod.name);
+                console.log('Commentaires: ' + data + ' on ' + mod.name);
             }
             else {
                 logIfDebug('Error :' + data);

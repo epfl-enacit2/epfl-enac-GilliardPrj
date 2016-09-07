@@ -7,7 +7,7 @@ par un module npm externe (epfl-enac-gilliarddb --> [readme](https://github.com/
 
 ##Installation
 
-* Récupérer le projet GilliardPrj avec tout ces fichiers puis à la racine lancer une commande dans la console node (au moin v6.2.0) (avoir préinstaller NodeJS --> [téléchargements](https://nodejs.org/en/ "Lien vers l'installation de NodeJS") avant tout) 
+* Récupérer le projet GilliardPrj avec tout ces fichiers puis à la racine du projet lancer une commande dans la console node(rechercher dans wîndows "node" et lancer "command prompt nodejs") (*au moins v6.2.0*) (avoir préinstaller NodeJS --> [téléchargements](https://nodejs.org/en/ "Lien vers l'installation de NodeJS") avant tout) 
 ```bash
 $ npm install
 ```
@@ -49,6 +49,8 @@ Lancer le programme ! Et là 2 options s'offrent à vous ;
     ```bash
     $ pm2 link {secret key} {public key} app.js
     ```
+ * Si des erreurs surviennent et que le status du process se met en errored veuillerz stopper le process (npm stop), corriger le problème puis restart (npm start).
+
 *  Et la deuxième et de lancer un terminal node et de lancer
     ```bash
     $ node app.js
