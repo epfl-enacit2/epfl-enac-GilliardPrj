@@ -41,7 +41,7 @@ Lancer le programme ! Et là 2 options s'offrent à vous ;
     ```bash
     $ npm test
     ```
-    Pour plus d'options telles que le monitoring à distance p.ex. lancer 
+  * Pour plus d'options telles que le monitoring à distance p.ex. lancer 
     ```bash
     $ npm install pm2 -g
     ```
