@@ -11,8 +11,8 @@
     "uuid": "^2.0.2"
   },
   "scripts": {
-    "start": "pm2 start app.js --merge-logs -e ./logs/errFile.log -o ./logs/outFile.log",
-    "stop": "pm2 kill",
-    "test": "pm2 list"
+    "start": "pm2 start app.js --merge-logs -e ./logs/errFile.log -o ./logs/outFile.log --name=GilliardAcqu",
+    "stop": "pm2 delete GilliardAcqu",
+    "listprocess": "pm2 list"
   }
 }

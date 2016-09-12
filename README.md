@@ -7,7 +7,7 @@ par un module npm externe (epfl-enac-gilliarddb --> [readme](https://github.com/
 
 ##Installation
 
-* Récupérer le projet GilliardPrj avec tout ces fichiers puis à la racine du projet lancer une commande dans la console node(rechercher dans wîndows "node" et lancer "command prompt nodejs") (*au moins v6.2.0*) (avoir préinstaller NodeJS --> [téléchargements](https://nodejs.org/en/ "Lien vers l'installation de NodeJS") avant tout) 
+* Récupérer le projet GilliardPrj avec tout ces fichiers puis à la racine du projet lancer une commande dans la console node(rechercher dans wîndows "node" et lancer "command prompt nodejs") (*au moins v6.2.0*) (avoir préinstaller NodeJS --> [téléchargements](https://nodejs.org/en/ "Lien vers l'installation de NodeJS dernière version - Current") avant tout) 
 ```bash
 $ npm install
 ```
@@ -28,18 +28,18 @@ Lancer le programme ! Et là 2 options s'offrent à vous ;
 
 *  à l'aide du module pm2 (relance le programme  s'il déclenche une erreur,le relance au moins 20x avant de déclarer une erreur bloquante) dans ce cas lancer la ligne 
     ```bash
-    $ npm start
+    $ npm run start
     ```
     Et 
     ```bash
-    $ npm stop
+    $ npm run stop
     ```
     pour arrêter le programme.
     Le programme sera relancé si des erreurs surviennent, les logs seront de toutes façons dans un fichier dans le repertoire "logs" si les options de logging sont sur "console". Les options de logging sur "fichier" créera un fichier dans logs aussi mais l'option "" ne fera aucun log.
 
     Et afin de voir quels sont les processus actuels du programme sur votre machine faites :
     ```bash
-    $ npm test
+    $ npm run listprocess
     ```
   * Pour plus d'options telles que le monitoring à distance p.ex. lancer 
     ```
