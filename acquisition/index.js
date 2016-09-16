@@ -54,7 +54,7 @@ module.exports = function (logging) {
                 console.log('Commentaires: ' + data + ' on ' + mod.name);
             }
             else {
-                logIfDebug('Error :' + data); 
+                logIfDebug('Error :' + data);
             }
         }
     }
