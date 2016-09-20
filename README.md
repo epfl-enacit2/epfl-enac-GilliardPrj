@@ -35,7 +35,7 @@ Lancer le programme ! Et là 2 options s'offrent à vous ;
     $ npm run stop
     ```
     pour arrêter le programme.
-    Le programme sera relancé si des erreurs surviennent, les logs seront de toutes façons dans un fichier dans le repertoire "logs" si les options de logging sont sur "console". Les options de logging sur "fichier" créera un fichier dans logs aussi mais l'option "" ne fera aucun log.
+    Le programme sera relancé si des erreurs surviennent, les logs seront de toutes façons dans un fichier dans le repertoire "logs" si les options de logging sont sur "console". Les options de logging sur "fichier" créera un fichier dans logs aussi tandis que l'option "" ne fera aucun log.
 
     Et afin de voir quels sont les processus actuels du programme sur votre machine faites :
     ```bash
@@ -45,11 +45,11 @@ Lancer le programme ! Et là 2 options s'offrent à vous ;
     ```
     $ npm install pm2 -g
     ```
-    ensuite pour linker et faire du monitoring à distance créer un [compte](https://app.keymetrics.io/#/register "Register for KeyMetrics") puis créer un "bucket" pui suiver les instructions
+    ensuite pour linker et faire du monitoring à distance créer un [compte](https://app.keymetrics.io/#/register "Register for KeyMetrics") puis créer un "bucket" puis suiver les instructions
     ```
     $ pm2 link {secret key} {public key} app.js
     ```
- * Si des erreurs surviennent et que le status du process se met en errored veuillerz stopper le process (npm stop), corriger le problème puis restart (npm start).
+ * Si des erreurs surviennent et que le status du process se met en errored veuillerz stopper le process (npm run stop), corriger le problème puis restart (npm run start).
 
 *  Et la deuxième et de lancer un terminal node et de lancer
     ```
