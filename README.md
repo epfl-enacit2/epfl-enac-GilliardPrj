@@ -22,7 +22,7 @@ Cette commande installera les modules nécessaires au bon fonctionnement du syst
 
 * Une fois les modules nécessaires installés il vous faut modifier le fichier *configs_sample.json* dans le dossier *configs* en suivant les instructions des commentaires, une fois fait il vous faut renommer ce fichier *configs.json* et supprimer les commentaires.
 
-## Utilistation
+## Utilisations
 
 Lancer le programme ! Et là 2 options s'offrent à vous ;
 
