@@ -19,7 +19,8 @@ Cette commande installera les modules nécessaires au bon fonctionnement du syst
  * Entrer les identifiants (de base username = root et laisser blanc le password) et cliquer dans l'onglet "SQL" en haut 
  * Dans la boite de texte entrer le script [SQL](https://github.com/epfl-enacit2/epfl-enac-GilliardDB/blob/master/docs/GilliardDbModels.sql "Lien vers le script SQL de la BDD")
  * Désormais la BDD a été crée et un user avec alors pour la prochaine étape (configs) vous pouvez mettre comme username : insertValues et password : password
-* Si vous devez mettre en place la BDD je vous invite à suivre ces quelques étapes (Linux) *Non recommandé car pas penser pour à la base...*;
+
+* Si vous devez mettre en place la BDD je vous invite à suivre ces quelques étapes (Linux) *Non recommandé car pas penser pour à la base...D'autant plus qu'après un test, avec une RaspBerry du moins, la mémoire ne soit pas suffisante à la capture des données et du push sur la BDD*;
  * Faire les étapes sous ce [lien]() pour installer le serveur apache et MySQL (nécessaire)
  * Puis ce [lien]() pour l'installation de phpmyadmin 
  * Entrez dans votre navigateur l'adresse localhost/phpmyadmin qui vous permettra de suivre les mêmes instructions que Windows à partir de la ligne 4
