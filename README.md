@@ -60,5 +60,4 @@ Lancer le programme ! Et là 2 options s'offrent à vous ;
 ## Cas d'utilisations
 
 * Pour toutes utilisations spéciales (distributions linux etc...) je vous laisse consulter le [ReadMe](https://github.com/EmergingTechnologyAdvisors/node-serialport#raspberry-pi-linux) du module serialport.
-* Pour les modifications sur les connexions aux ports séries il faut le faire dans le code dans acquistion --> index.js ou dans le *package.json*
-* Pour les connexions aux ports séries ce seront des noms comme *COM3*, *COM2*, ... qui seront dans le fichier de config mais pour un environnement linux ce sera plus comme */dev/tty-usbserial1*
+* Pour les connexions aux ports séries ce seront des noms comme *COM3*, *COM2*, ... qui seront dans le fichier de config mais pour un environnement linux ce sera par défaut */dev/ttyUSB0*
