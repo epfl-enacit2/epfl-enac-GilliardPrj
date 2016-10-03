@@ -21,8 +21,8 @@ Cette commande installera les modules nécessaires au bon fonctionnement du syst
  * Désormais la BDD a été crée et un user avec alors pour la prochaine étape (configs) vous pouvez mettre comme username : insertValues et password : password
 
 * Si vous devez mettre en place la BDD je vous invite à suivre ces quelques étapes (Linux) *Non recommandé car pas penser pour à la base...D'autant plus qu'après un test, avec une RaspBerry du moins, la mémoire ne soit pas suffisante à la capture des données et du push sur la BDD*
- * Faire les étapes sous ce [lien]() pour installer le serveur apache et MySQL (nécessaire)
- * Puis ce [lien]() pour l'installation de phpmyadmin 
+ * Faire les étapes sous ce [lien](https://www.stewright.me/2012/09/tutorial-install-apache-php-and-mysql-on-raspberry-pi/) pour installer le serveur apache et MySQL (nécessaire)
+ * Puis ce [lien](https://www.stewright.me/2012/09/tutorial-install-phpmyadmin-on-your-raspberry-pi/) pour l'installation de phpmyadmin 
  * Entrez dans votre navigateur l'adresse localhost/phpmyadmin qui vous permettra de suivre les mêmes instructions que Windows à partir de la ligne 4
  * Si le script SQL fourni ne s'avère pas un succès changer à la main les "DATETIME" par des "TIMESTAMP"
 
